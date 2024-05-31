@@ -5,7 +5,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import themePlume from 'vuepress-theme-plume'
 export default defineUserConfig({
     // 请不要忘记设置默认语言
-    base: '/blog/',
+    base: '/',
     lang: 'zh-CN',
     title: '博客',
     description: '欢迎来到博客',
@@ -16,17 +16,24 @@ export default defineUserConfig({
             {
                 text: 'RPC框架',
                 icon: 'material-symbols:event-note-outline-sharp',
-                link: '/myRpc/'
-                // link: 'blog/notes/studyWords/myRpc/README.md',
-                // activeMatch: '^/myRpc/'
+                items:[
+                    {
+                        text:"初始",
+                        link: '/myRpc/EasyRpc/'
+                    },
+                    {
+                        text:"配置",
+                        link: '/myRpc/Properties/'
+                    },
+                ]
             },
 
             {
                 text: '八股文',
                 icon: 'material-symbols:event-note-outline',
-                link: '/interview/'
-                // link: 'blog/notes/studyWords/interview/README.md',
-                // activeMatch: '^/interview/',
+                items: [
+                    
+                ]
             }
         ],
         // notes: {
