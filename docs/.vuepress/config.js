@@ -5,7 +5,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import themePlume from 'vuepress-theme-plume'
 export default defineUserConfig({
     // 请不要忘记设置默认语言
-    base: '/blog/',
+    base: './blog/',
     lang: 'zh-CN',
     title: '博客',
     description: '欢迎来到博客',
