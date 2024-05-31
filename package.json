@@ -7,13 +7,13 @@
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vuepress/bundler-vite": "^2.0.0-rc.9",
-    "@vuepress/client": "^2.0.0-rc.9",
+    "@vuepress/bundler-vite": "2.0.0-rc.9",
     "vue": "^3.4.23",
-    "vuepress": "^2.0.0-rc.9",
-    "vuepress-theme-plume": "^1.0.0-rc.52"
+    "vuepress": "2.0.0-rc.9",
+    "vuepress-theme-plume": "1.0.0-rc.52"
   }
 }
