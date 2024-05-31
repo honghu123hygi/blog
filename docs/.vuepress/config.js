@@ -2,7 +2,6 @@
 import { defineUserConfig } from 'vuepress/cli'
 import { viteBundler } from '@vuepress/bundler-vite'
 import { theme } from './theme.js'
-import themePlume from 'vuepress-theme-plume'
 export default defineUserConfig({
     // 请不要忘记设置默认语言
     base: './blog/',
