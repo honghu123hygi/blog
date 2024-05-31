@@ -44,7 +44,7 @@ export default defineUserConfig({
             link: '/',
             notes: [
                 {
-                    dir: 'studyWords/interview',
+                    dir: 'interview',
                     link: '/interview/',
                     sidebar: [
                         { text: 'Mysql', dir: 'Mysql', collapsed: false, items: ['MySQL.md', 'MySQL基础、锁、事务、分库分表、优化', 'MySQL索引连环18问！'] },
@@ -61,7 +61,7 @@ export default defineUserConfig({
                     ]
                 },
                 {
-                    dir: 'studyWords/myRpc',
+                    dir: 'myRpc',
                     link: '/myRpc/',
                     sidebar: [
                         {
