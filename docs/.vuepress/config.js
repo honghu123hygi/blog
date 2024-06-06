@@ -8,7 +8,6 @@ export default defineUserConfig({
     lang: 'zh-CN',
     title: '博客',
     description: '欢迎来到博客',
-    
     bundler: viteBundler(),
     theme,
 })
