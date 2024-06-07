@@ -1,4 +1,10 @@
-# 1、查找最晚入职员工的所有信息
+---
+title: sql实战一
+author:
+createTime: 2024/06/06 20:18:18
+permalink: /article/jxkuoi7x/
+---
+## 1、查找最晚入职员工的所有信息
 
 **题目描述**
 
@@ -27,7 +33,7 @@ select * from employees where hire_date = (select max(hire_date) from employees)
 
 
 
-# 2、查找入职员工时间排名倒数第三的员工所有信息
+## 2、查找入职员工时间排名倒数第三的员工所有信息
 
 **题目描述**
 
@@ -58,7 +64,7 @@ select * from employees where hire_date = (select distinct hire_date from employ
 
 
 
-# 3、查找当前薪水详情以及部门编号dept_no
+## 3、查找当前薪水详情以及部门编号dept_no
 
 **题目描述**
 
@@ -92,7 +98,7 @@ select salaries.emp_no,salary,salaries.from_date,salaries.to_date,dept_no from s
 
 
 
-# 4、查找所有已经分配部门的员工的last_name和first_name
+## 4、查找所有已经分配部门的员工的last_name和first_name
 
 **题目描述**
 
@@ -127,7 +133,7 @@ inner join的用法
 
 
 
-# 5、查找所有员工的last_name和first_name以及对应部门编号dept_no
+## 5、查找所有员工的last_name和first_name以及对应部门编号dept_no
 
 **题目描述**
 
@@ -162,7 +168,7 @@ left join的用法
 
 
 
-# 6、查找所有员工入职时候的薪水情况
+## 6、查找所有员工入职时候的薪水情况
 
 **题目描述**
 
@@ -197,7 +203,7 @@ select e.emp_no,s.salary from employees e left join salaries s on e.emp_no = s.e
 
 
 
-# 7、查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数t
+## 7、查找薪水涨幅超过15次的员工号emp_no以及其对应的涨幅次数t
 
 **题目描述**
 
@@ -224,7 +230,7 @@ select emp_no,count(emp_no) t from salaries group by emp_no having count(emp_no)
 
 
 
-# 8、找出所有员工当前薪水salary情况
+## 8、找出所有员工当前薪水salary情况
 
 **题目描述**
 
@@ -251,7 +257,7 @@ distinct的作用
 
 
 
-# 9、获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date='9999-01-01'
+## 9、获取所有部门当前manager的当前薪水情况，给出dept_no, emp_no以及salary，当前表示to_date='9999-01-01'
 
 **题目描述**
 
@@ -284,7 +290,7 @@ select dm.dept_no,dm.emp_no,s.salary from dept_manager dm left join salaries s o
 
 
 
-# 10、获取所有非manager的员工emp_no
+## 10、获取所有非manager的员工emp_no
 
 **题目描述**
 
@@ -319,7 +325,7 @@ select e.emp_no from employees e where e.emp_no not in (select emp_no from dept_
 
 
 
-# 11、获取所有员工当前的manager
+## 11、获取所有员工当前的manager
 
 **题目描述**
 
@@ -349,7 +355,7 @@ select de.emp_no,dm.emp_no manager_no from dept_emp de left join dept_manager dm
 
 
 
-# 12、获取所有部门中当前员工薪水最高的相关信息
+## 12、获取所有部门中当前员工薪水最高的相关信息
 
 **题目描述**
 
@@ -378,7 +384,7 @@ select dept_no,s.emp_no,max(salary) salary from dept_emp de left join salaries s
 
 
 
-# 13、从titles表获取按照title进行分组
+## 13、从titles表获取按照title进行分组
 
 **题目描述**
 
@@ -400,7 +406,7 @@ select title,count(emp_no) t from titles group by title having count(emp_no) >= 
 
 
 
-# 14、从titles表获取按照title进行分组，注意对于重复的emp_no进行忽略。
+## 14、从titles表获取按照title进行分组，注意对于重复的emp_no进行忽略。
 
 **题目描述**
 
@@ -423,7 +429,7 @@ select title,count(distinct emp_no) t from titles group by title having t >= 2
 
 
 
-# 15查找employees表
+## 15查找employees表
 
 **题目描述**
 
@@ -448,7 +454,7 @@ select * from employees where last_name != 'Mary' and emp_no % 2 = 1 order by hi
 
 
 
-# 16、统计出当前各个title类型对应的员工当前薪水对应的平均工资
+## 16、统计出当前各个title类型对应的员工当前薪水对应的平均工资
 
 **题目描述**
 
@@ -480,7 +486,7 @@ select title,avg(salary) avg from titles t left join salaries s on t.emp_no = s.
 
 
 
-# 17、获取当前薪水第二多的员工的emp_no以及其对应的薪水salary
+## 17、获取当前薪水第二多的员工的emp_no以及其对应的薪水salary
 
 **题目描述**
 
@@ -503,7 +509,7 @@ select emp_no,salary from salaries where to_date = '9999-01-01' order by salary 
 
 
 
-# 18、获取当前薪水第二多的员工的emp_no以及其对应的薪水salary，不准使用order by
+## 18、获取当前薪水第二多的员工的emp_no以及其对应的薪水salary，不准使用order by
 
 **题目描述**
 
@@ -540,7 +546,7 @@ select s.emp_no,salary,last_name,first_name from salaries s left join employees 
 
 
 
-# 19、查找所有员工的last_name和first_name以及对应的dept_name
+## 19、查找所有员工的last_name和first_name以及对应的dept_name
 
 **题目描述**
 
@@ -579,7 +585,7 @@ select e.last_name,e.first_name,d.dept_name from employees e left join dept_emp 
 
 
 
-# 20、查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth
+## 20、查找员工编号emp_no为10001其自入职以来的薪水salary涨幅值growth
 
 **题目描述**
 
@@ -606,7 +612,7 @@ select max(salary) - min(salary) growth from salaries where emp_no = 10001
 
 
 
-# 21、查找所有员工自入职以来的薪水涨幅情况
+## 21、查找所有员工自入职以来的薪水涨幅情况
 
 **题目描述**
 
@@ -655,7 +661,7 @@ select end.emp_no,(end.salary - start.salary) growth from (select emp_no,salary 
 
 
 
-# 22、统计各个部门对应员工涨幅的次数总和
+## 22、统计各个部门对应员工涨幅的次数总和
 
 **题目描述**
 
