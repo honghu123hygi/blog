@@ -1,3 +1,9 @@
+---
+title: Java 并发编程
+author:
+createTime: 2024/11/09 21:44:21
+permalink: /article/s9ld2flm/
+---
 # JUC
 
 ## 进程
@@ -203,7 +209,7 @@ Runnable 方式的优缺点：
 5. 把未来任务对象包装成线程对象
 6. 调用线程的 start() 方法启动线程
 
-`public FutureTask(Callable<V> callable)`：未来任务对象，在线程执行完后得到线程的执行结果
+`public FutureTask(Callable&lt;V> callable)`：未来任务对象，在线程执行完后得到线程的执行结果
 
 * FutureTask 就是 Runnable 对象，因为 **Thread 类只能执行 Runnable 实例的任务对象**，所以把 Callable 包装成未来任务对象
 * 线程池部分详解了 FutureTask 的源码
@@ -260,9 +266,9 @@ Thread 类 API：
 | public void start()                         | 启动一个新线程，Java虚拟机调用此线程的 run 方法              |
 | public void run()                           | 线程启动后调用该方法                                         |
 | public void setName(String name)            | 给当前线程取名字                                             |
-| public void getName()                       | 获取当前线程的名字<br />线程存在默认名称：子线程是 Thread-索引，主线程是 main |
+| public void getName()                       | 获取当前线程的名字&lt;br />线程存在默认名称：子线程是 Thread-索引，主线程是 main |
 | public static Thread currentThread()        | 获取当前线程对象，代码在哪个线程中执行                       |
-| public static void sleep(long time)         | 让当前线程休眠多少毫秒再继续执行<br />**Thread.sleep(0)** : 让操作系统立刻重新进行一次 CPU 竞争 |
+| public static void sleep(long time)         | 让当前线程休眠多少毫秒再继续执行&lt;br />**Thread.sleep(0)** : 让操作系统立刻重新进行一次 CPU 竞争 |
 | public static native void yield()           | 提示线程调度器让出当前线程对 CPU 的使用                      |
 | public final int getPriority()              | 返回此线程的优先级                                           |
 | public final void setPriority(int priority) | 更改此线程的优先级，常用 1 5 10                              |
@@ -686,7 +692,7 @@ Java 提供了线程优先级的机制，优先级会提示（hint）调度器�
 
 * NEW → RUNNABLE：当调用 t.start() 方法时，由 NEW → RUNNABLE
 
-* RUNNABLE <--> WAITING：
+* RUNNABLE &lt;--> WAITING：
 
   * 调用 obj.wait() 方法时
 
@@ -699,9 +705,9 @@ Java 提供了线程优先级的机制，优先级会提示（hint）调度器�
 
   * 当前线程调用 LockSupport.park() 方法
 
-* RUNNABLE <--> TIMED_WAITING：调用 obj.wait(long n) 方法、当前线程调用 t.join(long n) 方法、当前线程调用 Thread.sleep(long n)
+* RUNNABLE &lt;--> TIMED_WAITING：调用 obj.wait(long n) 方法、当前线程调用 t.join(long n) 方法、当前线程调用 Thread.sleep(long n)
 
-* RUNNABLE <--> BLOCKED：t 线程用 synchronized(obj) 获取了对象锁时竞争失败
+* RUNNABLE &lt;--> BLOCKED：t 线程用 synchronized(obj) 获取了对象锁时竞争失败
 
 
 
@@ -720,15 +726,15 @@ Windows：
 Linux：
 
 * ps -ef 查看所有进程
-* ps -fT -p <PID> 查看某个进程（PID）的所有线程
+* ps -fT -p &lt;PID> 查看某个进程（PID）的所有线程
 * kill 杀死进程
 * top 按大写 H 切换是否显示线程
-* top -H -p <PID> 查看某个进程（PID）的所有线程
+* top -H -p &lt;PID> 查看某个进程（PID）的所有线程
 
 Java：
 
 * jps 命令查看所有 Java 进程
-* jstack <PID> 查看某个 Java 进程（PID）的所有线程状态
+* jstack &lt;PID> 查看某个 Java 进程（PID）的所有线程状态
 * jconsole 来查看某个 Java 进程中线程的运行情况（图形界面）
 
 
@@ -1001,7 +1007,7 @@ public static void main(String[] args) {
 ```java
 0: 	new				#2		// new Object
 3: 	dup
-4: 	invokespecial 	#1 		// invokespecial <init>:()V，非虚方法
+4: 	invokespecial 	#1 		// invokespecial &lt;init>:()V，非虚方法
 7: 	astore_1 				// lock引用 -> lock
 8: 	aload_1					// lock （synchronized开始）
 9: 	dup						// 一份用来初始化，一份用来引用
@@ -1424,18 +1430,18 @@ public class Dead {
   ===================================================
   "Thread-1":
       at thread.TestDeadLock.lambda$main$1(TestDeadLock.java:28)
-      - waiting to lock <0x000000076b5bf1c0> (a java.lang.Object)
-      - locked <0x000000076b5bf1d0> (a java.lang.Object)
+      - waiting to lock &lt;0x000000076b5bf1c0> (a java.lang.Object)
+      - locked &lt;0x000000076b5bf1d0> (a java.lang.Object)
       at thread.TestDeadLock$$Lambda$2/883049899.run(Unknown Source)
       at java.lang.Thread.run(Thread.java:745)
   "Thread-0":
       at thread.TestDeadLock.lambda$main$0(TestDeadLock.java:15)
-      - waiting to lock <0x000000076b5bf1d0> (a java.lang.Object)
-      - locked <0x000000076b5bf1c0> (a java.lang.Object)
+      - waiting to lock &lt;0x000000076b5bf1d0> (a java.lang.Object)
+      - locked &lt;0x000000076b5bf1c0> (a java.lang.Object)
       at thread.TestDeadLock$$Lambda$1/495053715
   ```
 
-* Linux 下可以通过 top 先定位到 CPU 占用高的 Java 进程，再利用 `top -Hp 进程id` 来定位是哪个线程，最后再用 jstack <pid>的输出来看各个线程栈
+* Linux 下可以通过 top 先定位到 CPU 占用高的 Java 进程，再利用 `top -Hp 进程id` 来定位是哪个线程，最后再用 jstack &lt;pid>的输出来看各个线程栈
 
 * 避免死锁：避免死锁要注意加锁顺序
 
@@ -2699,7 +2705,7 @@ getInstance 方法对应的字节码为：
 14: ifnonnull 27
 17: new 			#3 		// class test/Singleton
 20: dup
-21: invokespecial 	#4 		// Method "<init>":()V
+21: invokespecial 	#4 		// Method "&lt;init>":()V
 24: putstatic 		#2 		// Field INSTANCE:Ltest/Singleton;
 27: aload_0
 28: monitorexit
@@ -2967,7 +2973,7 @@ CAS 与 synchronized 总结：
 | public final int getAndIncrement()    | 以原子方式将当前值加 1，返回的是自增前的值                   |
 | public final int incrementAndGet()    | 以原子方式将当前值加 1，返回的是自增后的值                   |
 | public final int getAndSet(int value) | 以原子方式设置为 newValue 的值，返回旧值                     |
-| public final int addAndGet(int data)  | 以原子方式将输入的数值与实例中的值相加并返回<br />实例：AtomicInteger 里的 value |
+| public final int addAndGet(int data)  | 以原子方式将输入的数值与实例中的值相加并返回&lt;br />实例：AtomicInteger 里的 value |
 
 
 
@@ -3083,7 +3089,7 @@ CAS 算法：有 3 个操作数（内存值 V， 旧的预期值 A，要修改�
 
 AtomicReference 类：
 
-* 构造方法：`AtomicReference<T> atomicReference = new AtomicReference<T>()`
+* 构造方法：`AtomicReference&lt;T> atomicReference = new AtomicReference&lt;T>()`
 
 * 常用 API：
   * `public final boolean compareAndSet(V expectedValue, V newValue)`：CAS 操作
@@ -3155,7 +3161,7 @@ public final boolean compareAndSet(int i, int expect, int update) {
 
 常用 API：
 
-* `static <U> AtomicIntegerFieldUpdater<U> newUpdater(Class<U> c, String fieldName)`：构造方法
+* `static &lt;U> AtomicIntegerFieldUpdater&lt;U> newUpdater(Class<U> c, String fieldName)`：构造方法
 * `abstract boolean compareAndSet(T obj, int expect, int update)`：CAS
 
 ```java
@@ -3684,7 +3690,7 @@ ThreadLocal 作用：
 
 | 方法                       | 描述                         |
 | -------------------------- | ---------------------------- |
-| ThreadLocal<>()            | 创建 ThreadLocal 对象        |
+| ThreadLocal&lt;>()            | 创建 ThreadLocal 对象        |
 | protected T initialValue() | 返回当前线程局部变量的初始值 |
 | public void set( T value)  | 设置当前线程绑定的局部变量   |
 | public T get()             | 获取当前线程绑定的局部变量   |
@@ -5627,11 +5633,11 @@ ExecutorService 类 API：
 | 方法                                                         | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | void execute(Runnable command)                               | 执行任务（Executor 类 API）                                  |
-| Future<?> submit(Runnable task)                              | 提交任务 task()                                              |
-| Future submit(Callable<T> task)                              | 提交任务 task，用返回值 Future 获得任务执行结果              |
-| List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks) | 提交 tasks 中所有任务                                        |
-| List<Future<T>> invokeAll(Collection<? extends Callable<T>> tasks, long timeout, TimeUnit unit) | 提交 tasks 中所有任务，超时时间针对所有task，超时会取消没有执行完的任务，并抛出超时异常 |
-| T invokeAny(Collection<? extends Callable<T>> tasks)         | 提交 tasks 中所有任务，哪个任务先成功执行完毕，返回此任务执行结果，其它任务取消 |
+| Future&lt;?> submit(Runnable task)                              | 提交任务 task()                                              |
+| Future submit(Callable&lt;T> task)                              | 提交任务 task，用返回值 Future 获得任务执行结果              |
+| List&lt;Future&lt;T>> invokeAll(Collection&lt;? extends Callable&lt;T>> tasks) | 提交 tasks 中所有任务                                        |
+| List&lt;Future&lt;T>> invokeAll(Collection&lt;? extends Callable&lt;T>> tasks, long timeout, TimeUnit unit) | 提交 tasks 中所有任务，超时时间针对所有task，超时会取消没有执行完的任务，并抛出超时异常 |
+| T invokeAny(Collection&lt;? extends Callable&lt;T>> tasks)         | 提交 tasks 中所有任务，哪个任务先成功执行完毕，返回此任务执行结果，其它任务取消 |
 
 execute 和 submit 都属于线程池的方法，对比：
 
@@ -5652,7 +5658,7 @@ ExecutorService 类 API：
 | 方法                                                  | 说明                                                         |
 | ----------------------------------------------------- | ------------------------------------------------------------ |
 | void shutdown()                                       | 线程池状态变为 SHUTDOWN，等待任务执行完后关闭线程池，不会接收新任务，但已提交任务会执行完，而且也可以添加线程（不绑定任务） |
-| List<Runnable> shutdownNow()                          | 线程池状态变为 STOP，用 interrupt 中断正在执行的任务，直接关闭线程池，不会接收新任务，会将队列中的任务返回 |
+| &lt;Runnable> shutdownNow()                          | 线程池状态变为 STOP，用 interrupt 中断正在执行的任务，直接关闭线程池，不会接收新任务，会将队列中的任务返回 |
 | boolean isShutdown()                                  | 不在 RUNNING 状态的线程池，此执行者已被关闭，方法返回 true   |
 | boolean isTerminated()                                | 线程池状态是否是 TERMINATED，如果所有任务在关闭后完成，返回 true |
 | boolean awaitTermination(long timeout, TimeUnit unit) | 调用 shutdown 后，由于调用线程不会等待所有任务运行结束，如果它想在线程池 TERMINATED 后做些事情，可以利用此方法等待 |
@@ -5715,7 +5721,7 @@ ThreadPoolExecutor 使用 int 的**高 3 位来表示线程池状态，低 29 �
   // 表示在 ctl 中，低 COUNT_BITS 位，是用于存放当前线程数量的位
   private static final int COUNT_BITS = Integer.SIZE - 3;
   // 低 COUNT_BITS 位所能表达的最大数值，000 11111111111111111111 => 5亿多
-  private static final int CAPACITY   = (1 << COUNT_BITS) - 1;
+  private static final int CAPACITY   = (1 &lt;&lt; COUNT_BITS) - 1;
   ```
 
   ![](https://seazean.oss-cn-beijing.aliyuncs.com/img/Java/JUC-线程池状态转换图.png)
@@ -15251,7 +15257,7 @@ public class ChannelTest {
 | public abstract int select(long timeout)         | **阻塞**等待 timeout 毫秒                   |
 | public abstract int selectNow()                  | 获取一下，**不阻塞**，立刻返回              |
 | public abstract Selector wakeup()                | 唤醒正在阻塞的 selector                     |
-| public abstract Set<SelectionKey> selectedKeys() | 返回此选择器的选择键集                      |
+| public abstract Set&lt;SelectionKey> selectedKeys() | 返回此选择器的选择键集                      |
 
 SelectionKey API:
 

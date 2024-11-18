@@ -1,3 +1,9 @@
+---
+title: MobSF源码解析
+author:
+createTime: 2024/11/18 15:46:31
+permalink: /article/93f70mxb/
+---
 # 1、**apk静态分析**
 
 
@@ -229,7 +235,7 @@ try:
 
 ### 1.2.2、获取 app_name
 
-​	主要分为2种，要么读取AndroidManifest.xml文件的 <application>标签下的 android:label属性值。要么读取resvalues/stings.xml文件中的 appname 属性值。代码如下:
+​	主要分为2种，要么读取AndroidManifest.xml文件的 &lt;application>标签下的 android:label属性值。要么读取resvalues/stings.xml文件中的 appname 属性值。代码如下:
 
 ```python
 def get_app_name_from_values_folder(values_dir):
@@ -1072,4 +1078,3 @@ logger.info('httptools UI started')
 
 `mobsf_ca`函数的主要功能是通过POST方法安装或删除MobSF代理的ROOT CA
 
-### 3.2.6、
