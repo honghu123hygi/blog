@@ -15,5 +15,11 @@ export const zhNavbar = [
         icon: 'material-symbols:event-note-outline',
         link: '/interview/README.md',
         activeMatch: '^/interview/',
+    },
+    {
+        text: '春招',
+        icon: 'material-symbols:event-note-outline',
+        link: '/study/README.md',
+        activeMatch: '^/study/',
     }
 ] as NavItem[]

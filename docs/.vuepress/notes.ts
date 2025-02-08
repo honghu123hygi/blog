@@ -36,6 +36,20 @@ export const zhNotes = definePlumeNotesConfig({
                     ]
                 }
             ]
+        },
+        {
+            dir: 'study',
+            link: '/study/',
+            sidebar:[
+                {
+                    text: '春招复习',
+                    collapsed: false,
+                    items: [
+                        '001、什么是不可变类','002、什么是 JAVA 的多态特性','003、一条 sql 语句在 MYSQL 的执行过程',
+                        '004、MYSQL的存储引擎有哪些，有什么区别'
+                    ]
+                }
+            ]
         }
     ],
 })
