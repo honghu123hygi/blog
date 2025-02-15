@@ -46,7 +46,8 @@ export const zhNotes = definePlumeNotesConfig({
                     collapsed: false,
                     items: [
                         '001、什么是不可变类','002、什么是 JAVA 的多态特性','003、一条 sql 语句在 MYSQL 的执行过程',
-                        '004、MYSQL的存储引擎有哪些，有什么区别'
+                        '004、MYSQL的存储引擎有哪些，有什么区别','005、MYSQL 的索引类型','006、数据库的脏读、不可重复读和幻读分别是什么？',
+                        '007、数据库的三大范式','008、8 种 SQL 优化方式'
                     ]
                 }
             ]
