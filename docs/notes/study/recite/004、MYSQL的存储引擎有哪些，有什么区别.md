@@ -4,7 +4,6 @@ author:
 createTime: 2025/02/08 22:04:25
 permalink: /study/w5wklsvd/
 ---
-## 004、MYSQL的存储引擎有哪些，有什么区别
 
 MYSQL 的主要存储引擎包括：
 

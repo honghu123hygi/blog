@@ -4,7 +4,6 @@ author:
 createTime: 2025/02/15 14:03:05
 permalink: /study/lzpdqbfi/
 ---
-## 005、MYSQL 的索引类型
 
 **以数据结构来区分：**
 
