@@ -50,11 +50,11 @@ export const zhNotes = definePlumeNotesConfig({
                         '004、MYSQL的存储引擎有哪些，有什么区别','005、MYSQL 的索引类型','006、数据库的脏读、不可重复读和幻读分别是什么？',
                         '007、数据库的三大范式','008、8 种 SQL 优化方式','009、什么是 Spring IOC',
                         '010、Spring 如何处理循环依赖？','011、MYSQL 的日志类型有哪些？','012、String、StringBuffer、StringBuilder的区别',
-                        '013、常见排序算法及其时间、空间复杂度'
+                        '013、常见排序算法及其时间、空间复杂度','014、java 中的垃圾回收算法','015、实现单例模式'
                     ]
                 },
                 {
-                    text: '图库',
+                    text: '项目',
                     dir: 'project',
                     collapsed: false,
                     items: [
